@@ -1,0 +1,22 @@
+Lista os processos: 
+tasklist
+Nome da Pasta:
+volatility_2.5.win.standalone
+
+Descobrir Profile:
+volatility.exe -f memdump.mem imageinfo >>>>>   Win7SP0x86
+
+Listar Processos:
+volatility.exe -f memdump.mem --profile=Win7SP1x86 pslist
+
+Exibe lista das dlls carregadas para cada processo:
+volatility.exe –f memdump.mem  -–profile=Win7SP1x86 dlllist
+
+Cria um arquivo com lista de Processos:
+volatility.exe -f memdump.mem --profile=Win7SP1x86 pslist > pslist.txt
+
+Cria arquivo q exibe lista das dlls carregadas para cada processo:
+volatility.exe –f memdump.mem  -–profile=Win7SP1x86 dlllist> dlllist.txt
+
+Recria os arquivos dos processos que estavam na memória
+volatility-2.4.standalone.exe -f <imagem> –profile=Win7SP0x64 procdump –dump-dir=c:\temp
